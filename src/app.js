@@ -3,8 +3,12 @@ const app=express()
 const port=3000
 require('./db/mongoose')
 app.use(express.json())
-const router=require('./routers/user')
-app.use(router)
+const userRouter=require('./routers/user')
+const articleRouter = require("./routers/article");
+
+app.use(articleRouter);
+
+app.use(userRouter)
 app.listen(port, () => {
   console.log("All Done Successfully");
 });
